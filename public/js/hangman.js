@@ -48,6 +48,30 @@ $(function(){
 
     var letterBoard = new LetterBoard();
     var wordBoard = new WordBoard();
+
+    var canvas = $("canvas");
+    var context = canvas.get(0).getContext("2d");
+
+    var accumulator = 0;
+
+    animate();
+
+    // animation loop
+    function animate() {
+        context.clearRect(0, 0, canvas.width(), canvas.height());
+        var endAngle = accumulator / 20;
+        accumulator++;
+        context.beginPath();
+        context.arc(250 , 100, 50, 0, endAngle, false);
+        context.strokeStyle = "#000";
+        context.lineWidth = 2;
+        context.stroke();
+
+        if (endAngle < (2 * Math.PI)) {
+            setTimeout(animate, 30);
+        }
+    };
 });
+
 
 
