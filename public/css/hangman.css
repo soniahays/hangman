@@ -1,11 +1,15 @@
+body{
+    background-color:  #363231;
+    text-align: center;
+}
 #letters, #word{
-    width: 740px;
+    width: 340px;
     display: inline-block;
 }
 
 #letters span{
     margin-right: 20px;
-    font-size: 50px;
+    font-size: 20px;
     display: inline-block;
 }
 
@@ -14,9 +18,27 @@
 }
 #word span{
     margin-right: 20px;
-    font-size: 50px;
+    font-size: 20px;
     display: inline-block;
 }
 .hide{
     visibility: hidden;
+}
+.display {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #ccc;
+}
+.play{
+    border-left: 1px solid #ccc;
+    flex: 1 1 auto;
+    margin:auto;
+}
+#main{
+    max-width: 768px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    margin: 0 auto;
+    background-color: white;
 }

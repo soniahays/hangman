@@ -49,29 +49,52 @@ $(function(){
     var letterBoard = new LetterBoard();
     var wordBoard = new WordBoard();
 
+
+//    Here start the drawings
+//    requestAnim shim layer by Paul Irish
+//    window.requestAnimFrame = (function () {
+//        return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame ||
+//            window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
+//            function ( /* function */ callback, /* DOMElement */ element) {
+//            window.setTimeout(callback, 1000 / 60);
+//        };
+//    })();
+
     var canvas = $("canvas");
     var context = canvas.get(0).getContext("2d");
 
     var accumulator = 0;
 
+    var line = new Line(context, 85, 460, 140, 340);
+    var line2 = new Line(context, 195, 460, 140, 340);
+    var line3 = new Line(context, 140 ,460, 140, 340);
+
+
     animate();
 
-    // animation loop
+    //animation loop
     function animate() {
-        context.clearRect(0, 0, canvas.width(), canvas.height());
+        context.clearRect(0, 0, 100, 100);
         var endAngle = accumulator / 20;
         accumulator++;
         context.beginPath();
         context.arc(250 , 100, 50, 0, endAngle, false);
-        context.strokeStyle = "#000";
-        context.lineWidth = 2;
+        context.strokeStyle = "#2068A8";
+        context.lineWidth = 25;
         context.stroke();
+        line.animate();
+        line2.animate();
+        line3.animate();
+
 
         if (endAngle < (2 * Math.PI)) {
-            setTimeout(animate, 30);
+            requestAnimationFrame(animate);
         }
+    }
+    var imageObj = new Image();
+    imageObj.onload = function() {
+        context.drawImage(imageObj, 50, 60, 400, 400);
     };
+    imageObj.src = '../img/hangman.png';
+
 });
-
-
-

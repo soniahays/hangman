@@ -5,15 +5,20 @@
     <title>Simple Express Static Server</title>
     <link rel="stylesheet" type="text/css" href="/css/hangman.css">
     <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="/js/line.js"></script>
     <script src="/js/hangman.js"></script>
 </head>
 <body>
-    <canvas id="canvas" width="500" height="500"></canvas>
-    <div id="word">
-
-    </div>
-    <div id="letters">
-
-    </div>
+    <section id="main">
+        <div class="display">
+            <canvas id="canvas" width="500" height="600" style="border: solid 2px red;"></canvas>
+            <div class="play">
+                <div id="word">
+                </div>
+                <div id="letters">
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
