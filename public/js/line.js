@@ -21,12 +21,12 @@ Line.prototype.animate = function(){
     var x, y;
 
     if(this.startX !== this.endX){
-        x = Math.min(this.endX, this.endX > this.startX ?  this.startX + this.counter : this.startX - this.counter);
+        x = this.endX > this.startX ? Math.min(this.endX, this.startX + this.counter) : Math.max(this.endX, this.startX - this.counter);
         y = a * x + b;
 
     }else{
         x = this.startX;
-        y = this.endY > this.startY ? this.startY + this.counter : this.startY - this.counter;
+        y = this.endY > this.startY ? Math.min(this.endY, this.startY + this.counter) : Math.max(this.endY, this.startY - this.counter);
     }
     this.draw(this.startX, this.startY, x, y);
     this.counter++;

@@ -67,7 +67,7 @@ $(function(){
 
     var line = new Line(context, 85, 460, 140, 340);
     var line2 = new Line(context, 195, 460, 140, 340);
-    var line3 = new Line(context, 140 ,460, 140, 340);
+    var line3 = new Line(context, 140 ,460, 140, 180);
 
 
     animate();
@@ -86,10 +86,9 @@ $(function(){
         line2.animate();
         line3.animate();
 
-
-        if (endAngle < (2 * Math.PI)) {
+//        if (endAngle < (2 * Math.PI)) {
             requestAnimationFrame(animate);
-        }
+//        }
     }
     var imageObj = new Image();
     imageObj.onload = function() {
