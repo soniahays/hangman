@@ -63,11 +63,19 @@ $(function(){
     var canvas = $("canvas");
     var context = canvas.get(0).getContext("2d");
 
-    var accumulator = 0;
+    var speed = 10;
 
-    var line = new Line(context, 85, 460, 140, 340);
-    var line2 = new Line(context, 195, 460, 140, 340);
-    var line3 = new Line(context, 140 ,460, 140, 180);
+    var line = new Line(context, 85, 460, 140, 340, speed);
+    var line2 = new Line(context, 195, 460, 140, 340, speed);
+    var line3 = new Line(context, 140 , 460, 140, 75, speed);
+    var line4 = new Line(context, 140 , 72.5, 400, 72.5, speed);
+    var line5 = new Line(context, 280 , 72.5, 140, 210, speed);
+    var line6 = new Line(context, 360 , 72.5, 360, 205, speed);
+    var line7 = new Line(context, 360 , 205, 360, 300, speed);
+    var line8 = new Line(context, 350 , 295, 330, 420, speed);
+    var line9 = new Line(context, 370 , 295, 380, 420, speed);
+
+    var head = new Arc(context, 360 , 180, 15, 0, 2 * Math.PI, false, speed);
 
 
     animate();
@@ -75,20 +83,30 @@ $(function(){
     //animation loop
     function animate() {
         context.clearRect(0, 0, 100, 100);
-        var endAngle = accumulator / 20;
-        accumulator++;
-        context.beginPath();
-        context.arc(250 , 100, 50, 0, endAngle, false);
-        context.strokeStyle = "#2068A8";
+        context.strokeStyle = "white";
         context.lineWidth = 25;
-        context.stroke();
+        context.lineJoin = "round";
         line.animate();
         line2.animate();
+        context.lineCap = "round";
+        context.lineJoin = "bevel";
         line3.animate();
+        line4.animate();
+        line5.animate();
+        context.lineWidth = 10;
+        line6.animate();
+        context.lineWidth = 45;
+        line7.animate();
+        context.lineWidth = 25;
+        context.lineCap = "round";
+        line8.animate();
+        line9.animate();
+        head.animate();
 
-//        if (endAngle < (2 * Math.PI)) {
+
+        if (true) {
             requestAnimationFrame(animate);
-//        }
+        }
     }
     var imageObj = new Image();
     imageObj.onload = function() {

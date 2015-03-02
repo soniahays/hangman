@@ -1,11 +1,12 @@
 
-function Line(context, startX, startY, endX, endY){
+function Line(context, startX, startY, endX, endY, speed){
     this.context = context;
     this.startX = startX;
     this.endX = endX;
     this.startY = startY;
     this.endY = endY;
     this.counter = 0;
+    this.speed = speed;
 }
 
 Line.prototype.draw = function(startX, startY, endX, endY){
@@ -29,5 +30,7 @@ Line.prototype.animate = function(){
         y = this.endY > this.startY ? Math.min(this.endY, this.startY + this.counter) : Math.max(this.endY, this.startY - this.counter);
     }
     this.draw(this.startX, this.startY, x, y);
-    this.counter++;
+    this.counter += this.speed;
+
+    return Math.abs(this.endX - x) > 0 && Math.abs(this.endY - y) > 0;
 };

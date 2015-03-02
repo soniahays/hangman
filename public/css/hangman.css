@@ -2,6 +2,11 @@ body{
     background-color:  #363231;
     text-align: center;
 }
+#canvas{
+    z-index:0;
+    background:-moz-linear-gradient(top, #040429, #257eb7);
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#040429), color-stop(100%,#257eb7));
+}
 #letters, #word{
     width: 340px;
     display: inline-block;
@@ -24,16 +29,16 @@ body{
 .hide{
     visibility: hidden;
 }
-.display {
-    display: flex;
-    flex-direction: row;
-    border: 1px solid #ccc;
-}
-.play{
-    border-left: 1px solid #ccc;
-    flex: 1 1 auto;
-    margin:auto;
-}
+/*.display {*/
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*border: 1px solid #ccc;*/
+/*}*/
+/*.play{*/
+    /*border-left: 1px solid #ccc;*/
+    /*flex: 1 1 auto;*/
+    /*margin:auto;*/
+/*}*/
 #main{
     max-width: 768px;
     display: inline-block;
